@@ -42,4 +42,6 @@ export const createTTFromSVGs = async (
 	);
 
 	renderAndStoreTTF(fontelloConfig, path.resolve(fontPath, `${fontName}.ttf`));
+
+	return fontelloConfig;
 };

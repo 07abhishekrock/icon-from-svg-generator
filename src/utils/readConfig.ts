@@ -50,8 +50,14 @@ export const readConfig = (configPath: string) => {
 };
 
 export const throwIfNotValidDirectory = (path: string, label: string) => {
-	if (!fs.statSync(path).isDirectory) {
-		const errorMessage = `${label} path does not exist`;
+	const errorMessage = `${label} path does not exist`;
+
+	try {
+		if (!fs.statSync(path).isDirectory) {
+			cli.red(errorMessage);
+			throw new Error(errorMessage);
+		}
+	} catch (e) {
 		cli.red(errorMessage);
 		throw new Error(errorMessage);
 	}

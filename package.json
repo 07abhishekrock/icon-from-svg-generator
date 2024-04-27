@@ -1,7 +1,7 @@
 {
-	"name": "create-font-from-fontello",
-	"version": "0.0.0",
-	"private": true,
+	"name": "create-font-from-svgs",
+	"version": "0.0.2",
+	"private": false,
 	"description": "",
 	"repository": {
 		"type": "git",

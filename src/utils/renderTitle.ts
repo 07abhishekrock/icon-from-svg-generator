@@ -1,8 +1,11 @@
 import figlet from 'figlet';
 
 export const renderTitle = () => {
-	const text = figlet.textSync('My Node.js App', {
+	const text = figlet.textSync('SVG to TTF', {
 		font: 'Small',
 	});
-	console.log(`\n${text}\n`);
+	const creditText = figlet.textSync('credits - fontello, svg2ttf', {
+		font: 'Bigfig',
+	});
+	console.log(`\n${text}\n${creditText}\n`);
 };
