@@ -5,6 +5,7 @@ const validSchema = object({
 	targetFontDirectory: string().required(),
 	fontName: string().required(),
 	htmlPath: string().notRequired(),
+	fontelloConfigOutput: string().notRequired(),
 });
 
 export type FONT_GENERATE_CONFIG = InferType<typeof validSchema>;

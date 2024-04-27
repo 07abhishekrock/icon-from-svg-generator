@@ -30,5 +30,5 @@ devcontainer.env
 .DS_Store
 
 svgs
-fonts
+fonts/
 config.json

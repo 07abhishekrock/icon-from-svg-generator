@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { dirname } from 'path';
 import {
 	INVALID_JSON_CONFIG,
 	NON_EXISTEND_JSON_CONFIG_PATH,
@@ -60,5 +61,23 @@ export const throwIfNotValidDirectory = (path: string, label: string) => {
 	} catch (e) {
 		cli.red(errorMessage);
 		throw new Error(errorMessage);
+	}
+};
+
+export const writeFileEvenIfParentDirectoryDoesNotExist = (
+	filePath: string,
+	fileContent: string,
+) => {
+	try {
+		if (!fs.existsSync(dirname(filePath))) {
+			fs.mkdirSync(dirname(filePath), { recursive: true });
+		}
+
+		fs.writeFileSync(filePath, fileContent, {
+			encoding: 'utf-8',
+		});
+	} catch (e) {
+		cli.red(`Could not write to file ${filePath}`);
+		throw e;
 	}
 };
